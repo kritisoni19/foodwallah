@@ -1,33 +1,54 @@
 import React from "react";
+import { useEffect, useState } from "react";
 
-function Header() {
+function Header({}) {
+  const [inputText, setInputText] = useState('');
+
+  const searchBtn =() =>{
+    console.log(inputText);
+     setInputText(inputText)
+    //  inputText.filter(()=>{
+      
+    //  })
+  }
   return (
     <div className="container-fluid top-header">
       <div className="container">
         <div className="row align-items-center d-flex ">
-          <div className="col-md-6 col-sm-12">
+          <div className="col-md-5 col-sm-12">
             <div className="logo">FoodWallah</div>
           </div>
-          <div className="col-md-6 col-sm-12 header-menu">
+          <div className="col-md-7 col-sm-12 header-menu">
             <ul>
               <li>
                 <div className="d-flex align-items-center">
-                  <svg
-                
-                    viewBox="5 -1 12 25"
-                    height="17"
-                    width="17"
-                    fill="#686b78"
-                  >
-                    <path d="M17.6671481,17.1391632 L22.7253317,22.1973467 L20.9226784,24 L15.7041226,18.7814442 C14.1158488,19.8024478 12.225761,20.3946935 10.1973467,20.3946935 C4.56550765,20.3946935 0,15.8291858 0,10.1973467 C0,4.56550765 4.56550765,0 10.1973467,0 C15.8291858,0 20.3946935,4.56550765 20.3946935,10.1973467 C20.3946935,12.8789625 19.3595949,15.3188181 17.6671481,17.1391632 Z M10.1973467,17.8453568 C14.4212261,17.8453568 17.8453568,14.4212261 17.8453568,10.1973467 C17.8453568,5.97346742 14.4212261,2.54933669 10.1973467,2.54933669 C5.97346742,2.54933669 2.54933669,5.97346742 2.54933669,10.1973467 C2.54933669,14.4212261 5.97346742,17.8453568 10.1973467,17.8453568 Z"></path>
-                  </svg>
-                  <span className="ms-3">Search</span>
+                  <label className=" d-flex">
+                    <input
+                      type="text"
+                      value={inputText}
+                      placeholder="Search"
+                      className="form-control"
+                      onChange={(e)=>{
+                        setInputText(e.target.value) 
+                      }}
+                    />
+                    <span className="search-icon" role="button" onClick={searchBtn}>
+                      <svg
+                        viewBox="5 -1 12 25"
+                        height="17"
+                        width="17"
+                        fill="#fff"
+                      >
+                        <path d="M17.6671481,17.1391632 L22.7253317,22.1973467 L20.9226784,24 L15.7041226,18.7814442 C14.1158488,19.8024478 12.225761,20.3946935 10.1973467,20.3946935 C4.56550765,20.3946935 0,15.8291858 0,10.1973467 C0,4.56550765 4.56550765,0 10.1973467,0 C15.8291858,0 20.3946935,4.56550765 20.3946935,10.1973467 C20.3946935,12.8789625 19.3595949,15.3188181 17.6671481,17.1391632 Z M10.1973467,17.8453568 C14.4212261,17.8453568 17.8453568,14.4212261 17.8453568,10.1973467 C17.8453568,5.97346742 14.4212261,2.54933669 10.1973467,2.54933669 C5.97346742,2.54933669 2.54933669,5.97346742 2.54933669,10.1973467 C2.54933669,14.4212261 5.97346742,17.8453568 10.1973467,17.8453568 Z"></path>
+                      </svg>
+                    </span>
+                  </label>
                 </div>
               </li>
+
               <li>
                 <div className="d-flex align-items-center">
                   <svg
-                   
                     viewBox="0 0 32 32"
                     height="19"
                     width="19"
@@ -41,7 +62,6 @@ function Header() {
               <li>
                 <div className="d-flex align-items-center">
                   <svg
-                   
                     viewBox="6 -1 12 25"
                     height="19"
                     width="19"
@@ -55,7 +75,6 @@ function Header() {
               <li>
                 <div className="d-flex align-items-center">
                   <svg
-                   
                     viewBox="6 0 12 24"
                     height="19"
                     width="18"
@@ -66,12 +85,12 @@ function Header() {
                   <span className="ms-3">Sign In</span>
                 </div>
               </li>
-              <li>
+              {/* <li>
                 <div className="d-flex align-items-center">
                 <svg  style={{fill: '#fff', strokeWidth: '2px', stroke: '#282c3f'}}  viewBox="-1 0 37 32" height="20" width="20" fill="#686b78"><path d="M4.438 0l-2.598 5.11-1.84 26.124h34.909l-1.906-26.124-2.597-5.11z"></path></svg>
                   <span className="ms-3">Cart</span>
                 </div>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

@@ -1,16 +1,12 @@
 import React from "react";
-import Carousel from '../components/Carousel';
-import CarouselSec from '../components/CarouselSec';
-import TopRestaurant from '../components/TopRestaurant';
-import Footer from "./Footer";
+// import Footer from "./Footer";
+import { Outlet} from "react-router-dom";
 
 function Body(){
     return(
         <>
-          <Carousel></Carousel>
-          <CarouselSec></CarouselSec>
-          <TopRestaurant></TopRestaurant>
-          <Footer></Footer>
+          <Outlet></Outlet>
+          {/* <Footer></Footer> */}
         </>
     )
 }

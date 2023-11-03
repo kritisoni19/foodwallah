@@ -13,10 +13,10 @@ function TopRestaurant() {
     const data = await fetch(SWIGGY_API);
     const json = await data.json(data);
     console.log(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[2]?.card?.card
     );
     setTopRes(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[2]?.card?.card
     );
   };
   
@@ -66,7 +66,7 @@ function TopRestaurant() {
           </div>
 
           <div  className="grid_property mb-3">
-            {topRes?.map((e, id) => {
+            {topRes?.gridElements?.infoWithStyle?.restaurants?.map((e, id) => {
               return (
                 <div key={id}>
                   {/* {e?.info?.areaName} */}
