@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-function Header({}) {
+function Header() {
   const [inputText, setInputText] = useState('');
 
   const searchBtn =() =>{
