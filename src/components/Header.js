@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function Header({}) {
   const [inputText, setInputText] = useState('');
@@ -7,9 +7,6 @@ function Header({}) {
   const searchBtn =() =>{
     console.log(inputText);
      setInputText(inputText)
-    //  inputText.filter(()=>{
-      
-    //  })
   }
   return (
     <div className="container-fluid top-header">

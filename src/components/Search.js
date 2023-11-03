@@ -1,28 +1,8 @@
-// import { useEffect, useState } from "react";
-// // import { SWIGGY_API } from "../utils/constant";
-// import { SWIGGY_CAROUSEL_IMG } from "../utils/constant";
+
+import React from "react";
 
 function Search(){
 
-  // const [inputText, setInputText] = useState('');
-  // const [filterDataShow, setFilterDataShow] = useState([]);
-
-  // useEffect(()=>{
-  //   // getCuisineData();
-  // },[]);
-
-
-//  const getCuisineData = async()=>{
-//     let data = await fetch( SWIGGY_API);
-//     let json = await data.json();
-//     // console.log(json.data);
-   
-//     setFilterDataShow(json?.data?.cards[1]?.card?.card);
-//  }
- 
-  // const searchBtn = ()=>{  
-  //   // console.log(filterDataShow)
-  // }
     return(
         <div className="container">
             <div className="row">
@@ -43,14 +23,7 @@ function Search(){
                   <div className="mt-5">
                     <h3>Title</h3>
                     <div>
-                      <img src=''
-                          style={{
-                            height: "180px",
-                            width: "144px",
-                            paddingRight: "16px",
-                          }}
-                          alt="card img"
-                        />
+                      
                     </div>
                   </div>
                 </div>
