@@ -1,7 +1,6 @@
 
 import Body from './components/Body';
 import Header from './components/Header';
-import Search from './components/Search';
 import MainContainer from './components/MainContainer';
 import { createBrowserRouter, RouterProvider} from "react-router-dom";
 
@@ -14,11 +13,8 @@ const router = createBrowserRouter([
       {
         path:'/',
         element:<MainContainer/>
-      },
-     {
-      path:'search',
-      element:<Search/>
-     }
+      }
+    
     ]
   },
  
