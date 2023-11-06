@@ -1,12 +1,13 @@
 import React from "react";
-// import Footer from "./Footer";
-import { Outlet} from "react-router-dom";
+import Header from '../components/Header';
+import { Outlet } from "react-router-dom";
 
 function Body(){
     return(
         <>
-          <Outlet></Outlet>
-          {/* <Footer></Footer> */}
+        <Header></Header>
+        {/* Children component bind here */}
+        <Outlet></Outlet>
         </>
     )
 }
