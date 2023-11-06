@@ -17,7 +17,7 @@ function RestaurantMenu(){
         })
    
        
-    },[resData])
+    },[resId,resData])
   
      
     return resData.length === 0 ? (<Shimmer/>) :  (
