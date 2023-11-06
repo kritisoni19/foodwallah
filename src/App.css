@@ -108,3 +108,7 @@ body{
   background: aliceblue;
   padding: 30px;
 }
+.inprogress{
+  text-align: center;
+  font-size: 50px;
+}
