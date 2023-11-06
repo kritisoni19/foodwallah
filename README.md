@@ -1,4 +1,5 @@
-![Images](./public/swiggy-scrn.png)
+![Images](./public/swiggy-new.png)
 
 
 Implementing food app using swiggy API with some functionality.
+

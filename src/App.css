@@ -1,6 +1,10 @@
 *{
   box-sizing: border-box;
 }
+a{
+  text-decoration: none;
+  color: #686b78;
+}
 body{
   font-family: 'Poppins', sans-serif;
 }
@@ -23,6 +27,7 @@ body{
   font-size: 35px;
   color: #fc8019;
   font-weight: 800;
+
 }
 .top-header{
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -34,7 +39,6 @@ body{
 .page_heading{
   font-size: 23px;
   font-weight: 600;
-  margin-bottom: 2rem;
 }
 .whats_scroll{
   display: flex;
@@ -84,4 +88,27 @@ body{
 }
 .mt-8rem{
   margin-top: 8rem;
+}
+.card_shim{
+  height: 180px;
+  width: 100%;
+  border-radius:20px;
+  background-color: #ebebeb;
+}
+.text_shim{
+  background-color: #ebebeb;
+  border: 3px solid #ebebeb;
+}
+.res-head{
+  border-bottom: 5px solid #fc8019;
+  display: inline-block;
+}
+
+.bg-blue{
+  background: aliceblue;
+  padding: 30px;
+}
+.inprogress{
+  text-align: center;
+  font-size: 50px;
 }
