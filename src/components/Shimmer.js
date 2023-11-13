@@ -7,9 +7,6 @@ function Shimmer(){
       <div className="container mt-8rem">
       <div className="row ">
         <div className="col-md-12 col-sm-12">
-          {/* <div className="d-flex align-items-center justify-content-between">
-          <p className="fs-5 text_shim"></p>
-          </div> */}
 
           <div  className="grid_property mb-3">
          
