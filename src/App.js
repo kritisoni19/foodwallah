@@ -6,6 +6,8 @@ import './App.css';
 import Contact from './components/Contact';
 import TopRestaurant from './components/TopRestaurant';
 import RestaurantMenu from './components/RestaurantMenu';
+import { Provider } from 'react-redux';
+import store from './utils/store';
 
 const approuter = createBrowserRouter([
   {
@@ -24,7 +26,8 @@ const approuter = createBrowserRouter([
       {
         path:'/restaurants/:resId',
         element:<RestaurantMenu/>
-      }
+      },
+      
     ]
   }
  
@@ -34,7 +37,10 @@ function App() {
 
   return (
     <div>
+      <Provider store={store}>
         <RouterProvider router = {approuter}/>
+      </Provider>
+       
     </div>
   );
 }

@@ -24,7 +24,90 @@ function Shimmer(){
                    
                   </div>
                 </div>
-            
+                <div >
+                 <div className="card_shim"></div>
+                  <div className="mt-3">
+                  <p className="fs-5 text_shim"></p>
+                    <div className="d-flex mb-2">
+                       <span className="text_shim"></span>
+                    </div>
+                    <p className="p-mt text_shim"></p>
+                    <p className="p-mt text_shim"></p>
+                   
+                  </div>
+                </div>
+                <div >
+                 <div className="card_shim"></div>
+                  <div className="mt-3">
+                  <p className="fs-5 text_shim"></p>
+                    <div className="d-flex mb-2">
+                       <span className="text_shim"></span>
+                    </div>
+                    <p className="p-mt text_shim"></p>
+                    <p className="p-mt text_shim"></p>
+                   
+                  </div>
+                </div>
+                <div >
+                 <div className="card_shim"></div>
+                  <div className="mt-3">
+                  <p className="fs-5 text_shim"></p>
+                    <div className="d-flex mb-2">
+                       <span className="text_shim"></span>
+                    </div>
+                    <p className="p-mt text_shim"></p>
+                    <p className="p-mt text_shim"></p>
+                   
+                  </div>
+                </div>
+                <div >
+                 <div className="card_shim"></div>
+                  <div className="mt-3">
+                  <p className="fs-5 text_shim"></p>
+                    <div className="d-flex mb-2">
+                       <span className="text_shim"></span>
+                    </div>
+                    <p className="p-mt text_shim"></p>
+                    <p className="p-mt text_shim"></p>
+                   
+                  </div>
+                </div>
+                <div >
+                 <div className="card_shim"></div>
+                  <div className="mt-3">
+                  <p className="fs-5 text_shim"></p>
+                    <div className="d-flex mb-2">
+                       <span className="text_shim"></span>
+                    </div>
+                    <p className="p-mt text_shim"></p>
+                    <p className="p-mt text_shim"></p>
+                   
+                  </div>
+                </div>
+                <div >
+                 <div className="card_shim"></div>
+                  <div className="mt-3">
+                  <p className="fs-5 text_shim"></p>
+                    <div className="d-flex mb-2">
+                       <span className="text_shim"></span>
+                    </div>
+                    <p className="p-mt text_shim"></p>
+                    <p className="p-mt text_shim"></p>
+                   
+                  </div>
+                </div>
+                <div >
+                 <div className="card_shim"></div>
+                  <div className="mt-3">
+                  <p className="fs-5 text_shim"></p>
+                    <div className="d-flex mb-2">
+                       <span className="text_shim"></span>
+                    </div>
+                    <p className="p-mt text_shim"></p>
+                    <p className="p-mt text_shim"></p>
+                   
+                  </div>
+                </div>
           
           </div>
         </div>
