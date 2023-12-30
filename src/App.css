@@ -112,3 +112,37 @@ body{
   text-align: center;
   font-size: 50px;
 }
+
+table,tr,td,th{
+  border: 1px solid black;
+
+}
+td,th{
+  border-collapse: collapse;
+  padding: 10px;
+}
+table{
+  width: 100%;
+}
+
+.pdMain{
+  padding: 10px;
+}
+.pdMain:hover{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 20px;
+  
+}
+.font-13{
+  font-size: 13px;
+}
+
+.outer-part{
+  border: 1px solid grey;
+  padding: 5px;
+  border-radius: 5px;
+}    
+.seperator{
+  border: 1px dotted grey;
+  margin-bottom: 1rem;
+}
