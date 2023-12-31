@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
-
-// import swiggyapidata from '../utils/mockdata';
 import { CLOUDANAY_IMG } from '../utils/constant';
 import Shimmer from "./Shimmer";
-// import { Link } from "react-router-dom";
 import { SWIGGY_API } from '../utils/constant';
 import '../App.css';
 import { Link } from "react-router-dom";
-
+import useOnlineStatus from '../utils/useOnlineStatus';
+// import warningLogo from '../../public/offline-warning.jpg'
 function TopRestaurant() {
   const [showRestaurantData, setshowRestaurantData] = useState([]);
   // creating other state for showing filtering data
@@ -41,8 +39,13 @@ function TopRestaurant() {
     console.log(filterData)
     setSecShowRest(filterData);
   }
+// check internet connection features
 
-
+const onlineStatusShow = useOnlineStatus()
+if(onlineStatusShow === false) return <div className="mt-def">
+  <p>err</p>
+  {/* <img src= '../offline-warning.jpg' alt='warning'/> */}
+</div>
 
   return showRestaurantData.length === 0 ? (<Shimmer />) : (
     <div className="container mt-8rem">

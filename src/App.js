@@ -6,8 +6,12 @@ import './App.css';
 import Contact from './components/Contact';
 import TopRestaurant from './components/TopRestaurant';
 import RestaurantMenu from './components/RestaurantMenu';
+// import Help from './components/Help';
 import { Provider } from 'react-redux';
 import store from './utils/store';
+import {lazy,Suspense} from 'react';
+
+const Help = lazy(()=>import('./components/Help'));
 
 const approuter = createBrowserRouter([
   {
@@ -23,6 +27,10 @@ const approuter = createBrowserRouter([
         path:'/contact',
         element:<Contact/>
       },
+      {
+      path:'/help',
+      element:<Suspense><Help/></Suspense>
+    },
       {
         path:'/restaurants/:resId',
         element:<RestaurantMenu/>
