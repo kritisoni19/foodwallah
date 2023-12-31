@@ -34,7 +34,7 @@ function Header() {
                 </div>
               </li>
               <li>
-                <Link to="/contact">
+                <Link to="/help">
                 <div className="d-flex align-items-center">
                   <svg
                     viewBox="6 -1 12 25"
@@ -62,12 +62,12 @@ function Header() {
                   <button type='button'  className="btn btn-primary mx-2" onClick={()=>{ btnName === 'Log In' ? setbtnName('Log Out'):setbtnName('Log In')}}>{btnName}</button>
                 </div>
               </li>
-              {/* <li>
+              <li>
                 <div className="d-flex align-items-center">
                 <svg  style={{fill: '#fff', strokeWidth: '2px', stroke: '#282c3f'}}  viewBox="-1 0 37 32" height="20" width="20" fill="#686b78"><path d="M4.438 0l-2.598 5.11-1.84 26.124h34.909l-1.906-26.124-2.597-5.11z"></path></svg>
                   <span className="ms-3">Cart</span>
                 </div>
-              </li> */}
+              </li>
             </ul>
           </div>
         </div>

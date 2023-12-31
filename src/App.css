@@ -146,3 +146,48 @@ table{
   border: 1px dotted grey;
   margin-bottom: 1rem;
 }
+
+.start-rating{
+  color: #19bd19;
+    font-size: 20px;
+    margin-right: 8px;
+}
+.accordion-button:not(.collapsed) {
+  color: #030405;
+  font-weight: 600;
+}
+.wd-img{
+  width: 145px;
+}
+.green{
+  color: #19bd19;
+}
+.red{
+  color: red;
+}
+.mt-def{
+  margin-top: 8%;
+}
+
+.accordion-buttons{
+  position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    background-color: #e7f1ff;
+    border: 0;
+    border-radius: 0;
+    overflow-anchor: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,border-radius .15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+  .font-30{
+    font-size: 30px;
+  }
