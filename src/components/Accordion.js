@@ -3,7 +3,7 @@ import { MEDIA_ASSETS_SWIGGY } from "../utils/constant";
 
 function Accordion({ cardProps }) {
     const {title,itemCards} = cardProps;
-    const [isActive, setIsActive] = useState(true);
+    const [isActive, setIsActive] = useState(false);
  
     useEffect(()=>{
         // console.log(itemCards)
@@ -20,7 +20,7 @@ function Accordion({ cardProps }) {
           >
            <span>{title}</span> 
            <span className="font-30">
-            {isActive?'+':'-'}
+            {isActive?'-':'+'}
             </span>
           </button>
           

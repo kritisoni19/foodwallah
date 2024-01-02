@@ -10,4 +10,6 @@ Implementing food app using swiggy API with some functionality.
 4. 
 5. Custom Hooks
 6. lazy loading/code splitting
+7. Higher order component - takes a comp and return a comp with adding some features
+8. 
 

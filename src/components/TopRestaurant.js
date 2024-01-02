@@ -5,7 +5,7 @@ import { SWIGGY_API } from '../utils/constant';
 import '../App.css';
 import { Link } from "react-router-dom";
 import useOnlineStatus from '../utils/useOnlineStatus';
-// import warningLogo from '../../public/offline-warning.jpg'
+import RestaurantCards from '../components/RestaurantCards'
 function TopRestaurant() {
   const [showRestaurantData, setshowRestaurantData] = useState([]);
   // creating other state for showing filtering data
@@ -13,17 +13,17 @@ function TopRestaurant() {
 
   const [inputText, setInputText] = useState(" ");
 
-  //  console.log(showRestaurantData);
+    console.log(secShowRest);
 
   const getApiData = async () => {
     const data = await fetch(SWIGGY_API);
     const json = await data.json();
-    console.log(json.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    // console.log(json.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     setshowRestaurantData(json.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     setSecShowRest(json.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   }
 
-  // cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+
 
   useEffect(() => {
     getApiData();
@@ -41,7 +41,8 @@ function TopRestaurant() {
   }
 // check internet connection features
 
-const onlineStatusShow = useOnlineStatus()
+const onlineStatusShow = useOnlineStatus();
+
 if(onlineStatusShow === false) return <div className="mt-def">
   <p>err</p>
   {/* <img src= '../offline-warning.jpg' alt='warning'/> */}
@@ -84,6 +85,7 @@ if(onlineStatusShow === false) return <div className="mt-def">
             {
               secShowRest.map((e) => {
                 return <Link key={e.info.id} to={'/restaurants/'+ e.info.id}>
+                  <RestaurantCards/>
                   <div className="pdMain" >
                   <img
                     src={CLOUDANAY_IMG + e.info.cloudinaryImageId}
