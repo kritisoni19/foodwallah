@@ -20,11 +20,10 @@ function RestaurantMenu() {
 
     useEffect(() => {
         fetchMenuData();
-    })
+    
+    },[])
 
     if (resInfo === null) return <Shimmer />
-
-    // const {name} = resInfo?.cards[0]?.card?.card?.info;
     const allCardsToShow  = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
     console.log(allCardsToShow)
     return (
