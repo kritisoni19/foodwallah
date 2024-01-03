@@ -1,12 +1,37 @@
 import { useEffect ,useState } from "react";
 import { MEDIA_ASSETS_SWIGGY } from "../utils/constant";
+import { useDispatch } from "react-redux";
+import {incrementItems} from '../utils/IncrDecreBtnSlice';
 
 function Accordion({ cardProps }) {
     const {title,itemCards} = cardProps;
     const [isActive, setIsActive] = useState(false);
- 
+    const [increValueShow, setIncreValueShow] = useState(0);
+    const [onPageLoadShowBtns , setonPageLoadShowBtns] = useState(false);
+
+
+    const dispatch = useDispatch();
+
+
+    const incrementHandle = (id)=>{
+      console.log('hikiti',+ id)
+      setIncreValueShow(increValueShow+1);
+      setonPageLoadShowBtns(true);
+      dispatch(incrementItems(id))
+    }
+    const decrementHandle =()=>{
+      if( increValueShow === 1){
+        setonPageLoadShowBtns(false)
+      }else{
+        setIncreValueShow(increValueShow-1);
+      } 
+    }
+
+   
+   
+    // const {itemCards} = ;
     useEffect(()=>{
-        // console.log(itemCards)
+        //  console.log(itemCards)
     },[])
   return (
     <   >
@@ -29,10 +54,11 @@ function Accordion({ cardProps }) {
           isActive &&   <div>
           <div className="accordion-body">
             <div>
-              {itemCards && itemCards.map((cardsevent,index) => {
+              {itemCards && itemCards.map((cardsevent) => {
                 return (
-                  <div key={index}>
+                  <div key={cardsevent?.card?.info?.id}  >
                     <div className="d-flex align-items-center justify-content-between">
+                      
                       <div>
                         {cardsevent?.card.info.itemAttribute.vegClassifier==="VEG"?<h4 className="green">
                           
@@ -53,12 +79,15 @@ function Accordion({ cardProps }) {
                           alt="card img"
                           className="wd-img"
                         />
-                        <button type='button' className="btn-sm btn-primary">ADD</button>
-                        <div className="d-flex align-items-center justify-content-center mt-1 mb-1">
-                          <button type='button' className="btn-sm btn-success">+</button>
-                            <p className="mb-0 mx-2">0</p>
-                          <button type='button' className="btn-sm btn-danger">-</button>
-                        </div>
+                      
+                        { onPageLoadShowBtns?
+                          <div className="d-flex align-items-center justify-content-center mt-1 mb-1">
+                          <button type='button' className="btn-sm btn-success"  onClick={()=> incrementHandle(cardsevent?.card.info.id)}>+</button>
+                            <p className="mb-0 mx-2">{increValueShow}</p>
+                          <button  type='button' className="btn-sm btn-danger" onClick={decrementHandle}>-</button>
+                        </div> : <button  type='button'  className="btn-sm btn-primary"
+                         onClick={()=> incrementHandle(cardsevent?.card.info.id)}>ADD</button>
+                        }
                       </div>
                     </div>
                     <div className="seperator"></div>
