@@ -7,21 +7,21 @@ function Accordion({ cardProps }) {
     const {title,itemCards} = cardProps;
     const [isActive, setIsActive] = useState(false);
     const [increValueShow, setIncreValueShow] = useState(0);
-    const [onPageLoadShowBtns , setonPageLoadShowBtns] = useState(false);
+    // const [onPageLoadShowBtns , setonPageLoadShowBtns] = useState(false);
 
 
     const dispatch = useDispatch();
 
 
     const incrementHandle = (id)=>{
-      console.log('hikiti',+ id)
+      console.log('hikiti', + id)
       setIncreValueShow(increValueShow+1);
-      setonPageLoadShowBtns(true);
+      // setonPageLoadShowBtns(true);
       dispatch(incrementItems(id))
     }
     const decrementHandle =()=>{
       if( increValueShow === 1){
-        setonPageLoadShowBtns(false)
+        // setonPageLoadShowBtns(false)
       }else{
         setIncreValueShow(increValueShow-1);
       } 
@@ -79,15 +79,14 @@ function Accordion({ cardProps }) {
                           alt="card img"
                           className="wd-img"
                         />
-                      
-                        { onPageLoadShowBtns?
+                     
                           <div className="d-flex align-items-center justify-content-center mt-1 mb-1">
                           <button type='button' className="btn-sm btn-success"  onClick={()=> incrementHandle(cardsevent?.card.info.id)}>+</button>
                             <p className="mb-0 mx-2">{increValueShow}</p>
                           <button  type='button' className="btn-sm btn-danger" onClick={decrementHandle}>-</button>
-                        </div> : <button  type='button'  className="btn-sm btn-primary"
+                        </div>  <button  type='button'  className="btn-sm btn-primary"
                          onClick={()=> incrementHandle(cardsevent?.card.info.id)}>ADD</button>
-                        }
+                        
                       </div>
                     </div>
                     <div className="seperator"></div>
