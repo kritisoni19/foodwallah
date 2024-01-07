@@ -19,8 +19,8 @@ function TopRestaurant() {
     const data = await fetch(SWIGGY_API);
     const json = await data.json();
     // console.log(json.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    setshowRestaurantData(json.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    setSecShowRest(json.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setshowRestaurantData(json.data.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setSecShowRest(json.data.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   }
 
 

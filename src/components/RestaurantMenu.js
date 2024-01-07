@@ -25,7 +25,7 @@ function RestaurantMenu() {
 
     if (resInfo === null) return <Shimmer />
     const allCardsToShow  = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-    console.log(allCardsToShow)
+    // console.log(allCardsToShow)
     return (
         <>
             <div className="container mt-8rem">

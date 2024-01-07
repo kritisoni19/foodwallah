@@ -1,37 +1,77 @@
 import { useEffect ,useState } from "react";
 import { MEDIA_ASSETS_SWIGGY } from "../utils/constant";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {incrementItems} from '../utils/IncrDecreBtnSlice';
 
 function Accordion({ cardProps }) {
     const {title,itemCards} = cardProps;
+    // const dispatch = useDispatch();
+    // const data=useSelector(state=>state.incredecrementSlice);
+      
     const [isActive, setIsActive] = useState(false);
     const [increValueShow, setIncreValueShow] = useState(0);
+    const [selectedData,setselectedData]=useState(new Map())
+    // const selectedData=new Map();
+    
     // const [onPageLoadShowBtns , setonPageLoadShowBtns] = useState(false);
 
+    const isVisible=(id)=>{
+      // console.log(selectedData);
+      for (let [key, value] of selectedData) {
+        if(key==id && value>0)
+        {
+          return true;
+        }
+          // console.log(selectedData[value])
+      }
+      return false;
 
-    const dispatch = useDispatch();
-
+    }
 
     const incrementHandle = (id)=>{
-      console.log('hikiti', + id)
+      // console.log('hikiti', + id)
       setIncreValueShow(increValueShow+1);
+
+      let currentValue=selectedData.get(id);
+      if(currentValue!=undefined)
+      {
+        selectedData.set(id,currentValue+1);
+      }
+      else
+      {
+        selectedData.set(id,1)
+      };
+      setselectedData(selectedData);
+      
       // setonPageLoadShowBtns(true);
-      dispatch(incrementItems(id))
+      // selectedData.set(id,increValueShow+1);
+      
+      // dispatch(incrementItems(id))
+      // isVisible(id);
     }
-    const decrementHandle =()=>{
-      if( increValueShow === 1){
-        // setonPageLoadShowBtns(false)
-      }else{
-        setIncreValueShow(increValueShow-1);
-      } 
+    const decrementHandle =(id)=>{
+      let currentValue=selectedData.get(id);
+      setIncreValueShow(increValueShow-1);
+      if(currentValue!=undefined || currentValue>0)
+      {
+        selectedData.set(id,currentValue-1);
+      }
+      else
+      {
+        selectedData.set(id,0)
+      };
+      // if( increValueShow === 1){
+      //   // setonPageLoadShowBtns(false)
+      // }else{
+      //   setIncreValueShow(increValueShow-1);
+      // } 
     }
 
    
    
     // const {itemCards} = ;
     useEffect(()=>{
-        //  console.log(itemCards)
+      // console.log("here")
     },[])
   return (
     <   >
@@ -80,12 +120,14 @@ function Accordion({ cardProps }) {
                           className="wd-img"
                         />
                      
-                          <div className="d-flex align-items-center justify-content-center mt-1 mb-1">
-                          <button type='button' className="btn-sm btn-success"  onClick={()=> incrementHandle(cardsevent?.card.info.id)}>+</button>
-                            <p className="mb-0 mx-2">{increValueShow}</p>
-                          <button  type='button' className="btn-sm btn-danger" onClick={decrementHandle}>-</button>
-                        </div>  <button  type='button'  className="btn-sm btn-primary"
-                         onClick={()=> incrementHandle(cardsevent?.card.info.id)}>ADD</button>
+                          {isVisible(cardsevent?.card.info.id)?<div className="d-flex align-items-center justify-content-center mt-1 mb-1">
+                           <button type='button' className="btn-sm btn-success"  onClick={()=> incrementHandle(cardsevent?.card.info.id)}>+</button>
+                          
+                            <p className="mb-0 mx-2">{selectedData.get(cardsevent?.card.info.id)}</p>
+                            {/* selectedData */}
+                          <button  type='button' className="btn-sm btn-danger" onClick={()=> decrementHandle(cardsevent?.card.info.id)}>-</button>
+                        </div> : <div className="d-flex align-items-center justify-content-center mt-1 mb-1"><button  type='button'  className="btn-sm btn-primary"
+                         onClick={()=> incrementHandle(cardsevent?.card.info.id)}>ADD</button></div>}
                         
                       </div>
                     </div>
