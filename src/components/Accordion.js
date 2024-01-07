@@ -1,28 +1,20 @@
 import { useEffect ,useState } from "react";
 import { MEDIA_ASSETS_SWIGGY } from "../utils/constant";
-import { useDispatch, useSelector } from "react-redux";
-import {incrementItems} from '../utils/IncrDecreBtnSlice';
 
 function Accordion({ cardProps }) {
     const {title,itemCards} = cardProps;
-    // const dispatch = useDispatch();
-    // const data=useSelector(state=>state.incredecrementSlice);
       
     const [isActive, setIsActive] = useState(false);
     const [increValueShow, setIncreValueShow] = useState(0);
-    const [selectedData,setselectedData]=useState(new Map())
-    // const selectedData=new Map();
-    
-    // const [onPageLoadShowBtns , setonPageLoadShowBtns] = useState(false);
+    const [selectedData,setselectedData]=useState(new Map());
 
     const isVisible=(id)=>{
-      // console.log(selectedData);
       for (let [key, value] of selectedData) {
-        if(key==id && value>0)
+        if(key===id && value>0)
         {
           return true;
         }
-          // console.log(selectedData[value])
+         
       }
       return false;
 
@@ -33,7 +25,7 @@ function Accordion({ cardProps }) {
       setIncreValueShow(increValueShow+1);
 
       let currentValue=selectedData.get(id);
-      if(currentValue!=undefined)
+      if(currentValue!==undefined)
       {
         selectedData.set(id,currentValue+1);
       }
@@ -43,16 +35,12 @@ function Accordion({ cardProps }) {
       };
       setselectedData(selectedData);
       
-      // setonPageLoadShowBtns(true);
-      // selectedData.set(id,increValueShow+1);
-      
-      // dispatch(incrementItems(id))
-      // isVisible(id);
+
     }
     const decrementHandle =(id)=>{
       let currentValue=selectedData.get(id);
       setIncreValueShow(increValueShow-1);
-      if(currentValue!=undefined || currentValue>0)
+      if(currentValue!== undefined || currentValue>0)
       {
         selectedData.set(id,currentValue-1);
       }
@@ -60,19 +48,15 @@ function Accordion({ cardProps }) {
       {
         selectedData.set(id,0)
       };
-      // if( increValueShow === 1){
-      //   // setonPageLoadShowBtns(false)
-      // }else{
-      //   setIncreValueShow(increValueShow-1);
-      // } 
+
     }
 
    
    
-    // const {itemCards} = ;
+   
     useEffect(()=>{
       // console.log("here")
-    },[])
+    })
   return (
     <   >
       {/* Accordion */}
