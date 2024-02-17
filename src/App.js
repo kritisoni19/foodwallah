@@ -29,7 +29,7 @@ const approuter = createBrowserRouter([
       },
       {
       path:'/help',
-      element:<Suspense><Help/></Suspense>
+      element:<Suspense fallback={<h1>Loading.....</h1>}><Help/></Suspense>
     },
       {
         path:'/restaurants/:resId',

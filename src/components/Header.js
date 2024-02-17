@@ -13,14 +13,14 @@ function Header() {
     <div className="container-fluid top-header">
       <div className="container">
         <div className="row align-items-center d-flex ">
-          <div className="col-md-6 col-sm-12">
+          <div className="col-md-5 col-sm-12">
             <div >
               <Link to='/'>
               <div className="logo">FoodWallah</div>
               </Link>
             </div>
           </div>
-          <div className="col-md-6 col-sm-12 header-menu">
+          <div className="col-md-7 col-sm-12 header-menu">
             <ul>
        
 
@@ -65,6 +65,11 @@ function Header() {
                   {/* <span className="ms-3">Sign In</span> */}
                   <button type='button'  className="btn btn-primary mx-2" onClick={()=>{ btnName === 'Log In' ? setbtnName('Log Out'):setbtnName('Log In')}}>{btnName}</button>
                 </div>
+              </li>
+              <li>
+                <Link to="/contact">
+                contact
+                </Link>
               </li>
               <li>
                 <div className="d-flex align-items-center">
