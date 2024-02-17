@@ -10,7 +10,6 @@ function TopRestaurant() {
   const [showRestaurantData, setshowRestaurantData] = useState([]);
   // creating other state for showing filtering data
   const [secShowRest, setSecShowRest] = useState([]);
-
   const [inputText, setInputText] = useState(" ");
 
     console.log(secShowRest);
