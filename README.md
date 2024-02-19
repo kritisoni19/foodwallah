@@ -13,7 +13,7 @@ Implementing food app using swiggy API with some functionality.
 7. Higher order component - takes a comp and return a comp with adding some features
 8. Install @reduxjs/toolkit and react-redux
 9. Lifting state up(passing data from child to parent) {revision}
-10.
+10. React form hook
 11. 
 12. 
 

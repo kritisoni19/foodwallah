@@ -5,21 +5,23 @@ import { SWIGGY_API } from '../utils/constant';
 import '../App.css';
 import { Link } from "react-router-dom";
 import useOnlineStatus from '../utils/useOnlineStatus';
-import RestaurantCards from '../components/RestaurantCards'
+import RestaurantCards from '../components/RestaurantCards';
+
 function TopRestaurant() {
   const [showRestaurantData, setshowRestaurantData] = useState([]);
   // creating other state for showing filtering data
-  const [secShowRest, setSecShowRest] = useState([]);
+  // const [secShowRest, setSecShowRest] = useState([]);
   const [inputText, setInputText] = useState(" ");
 
-    console.log(secShowRest);
+    console.log(showRestaurantData);
 
   const getApiData = async () => {
     const data = await fetch(SWIGGY_API);
     const json = await data.json();
+    console.log(json.data)
     // console.log(json.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    setshowRestaurantData(json.data.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    setSecShowRest(json.data.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setshowRestaurantData(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    // setSecShowRest(json.data.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   }
 
 
@@ -36,7 +38,7 @@ function TopRestaurant() {
 
     })
     console.log(filterData)
-    setSecShowRest(filterData);
+    setshowRestaurantData(filterData);
   }
 // check internet connection features
 
@@ -46,8 +48,8 @@ if(onlineStatusShow === false) return <div className="mt-def">
   <p>err</p>
   {/* <img src= '../offline-warning.jpg' alt='warning'/> */}
 </div>
-
-  return showRestaurantData.length === 0 ? (<Shimmer />) : (
+// showRestaurantData.length === 0 ? (<Shimmer />) :
+  return  (
     <div className="container mt-8rem">
       <div className="row ">
         <div className="col-md-12 col-sm-12">
@@ -82,7 +84,7 @@ if(onlineStatusShow === false) return <div className="mt-def">
 
           <div className="grid_property mb-3">
             {
-              secShowRest.map((e) => {
+              showRestaurantData?.map((e) => {
                 return <Link key={e.info.id} to={'/restaurants/'+ e.info.id}>
                   <RestaurantCards/>
                   <div className="pdMain" >

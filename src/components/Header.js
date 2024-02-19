@@ -1,14 +1,18 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+// import  addItemsCart from "../utils/cartSlice";
 
 function Header() {
 
   const [btnName, setbtnName] = useState('Log In');
 
 
-  // subscribe slice using useSelector
-  const cartItems = useSelector((store)=>store.incredecrementSlice.showItems)
+      // subscribe slice using useSelector
+    const cartCount = useSelector((store)=> store.cart.items )
+
+  
   return (
     <div className="container-fluid top-header">
       <div className="container">
@@ -72,10 +76,12 @@ function Header() {
                 </Link>
               </li>
               <li>
-                <div className="d-flex align-items-center">
+               <Link to='/cart'>
+               <div className="d-flex align-items-center">
                 <svg  style={{fill: '#fff', strokeWidth: '2px', stroke: '#282c3f'}}  viewBox="-1 0 37 32" height="20" width="20" fill="#686b78"><path d="M4.438 0l-2.598 5.11-1.84 26.124h34.909l-1.906-26.124-2.597-5.11z"></path></svg>
-                  <span className="ms-3">Cart ({cartItems.length} items)</span>
+                  <span className="ms-3">Cart -{cartCount.length}</span>
                 </div>
+               </Link>
               </li>
             </ul>
           </div>
