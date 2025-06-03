@@ -20,33 +20,34 @@ function RestaurantMenu() {
 
     useEffect(() => {
         fetchMenuData();
-    
-    })
+    },[])
 
     if (resInfo === null) return <Shimmer />
-    const allCardsToShow  = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-    // console.log(allCardsToShow)
+    const allCardsToShow  = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+    console.log('allCardsToShow', allCardsToShow)
     return (
         <>
             <div className="container mt-8rem">
                 <div className="row ">
                     <div className="col-md-12 col-sm-12 bg-blue">
+                        <h1>Reataurant Menu</h1>
                         <div className=" d-flex align-items-center justify-content-between">
                             <div>
-                                <h3 className="mb-3 res-head"> {resInfo?.cards[0]?.card?.card?.info?.name}</h3>
-                                <p className="font-13">{resInfo?.cards[0]?.card?.card?.info?.cuisines.join(' , ')} </p>
-                                <p className="font-13">{resInfo?.cards[0]?.card?.card?.info?.areaName} - {resInfo?.cards[0]?.card?.card?.info?.locality}</p>
+                                <h3 className="mb-3 res-head"> {resInfo?.cards[2]?.card?.card?.info?.name}</h3>
+                                <p className="font-13">{resInfo?.cards[2]?.card?.card?.info?.cuisines.join(' , ')} </p>
+                                <p className="font-13">{resInfo?.cards[2]?.card?.card?.info?.areaName} - {resInfo?.cards[2]?.card?.card?.info?.locality}</p>
 
-                                <p className="font-13">{resInfo?.cards[0]?.card?.card?.info?.feeDetails?.message}</p>
+                                <p className="font-13">{resInfo?.cards[2]?.card?.card?.info?.feeDetails?.message}</p>
                             </div>
                             <div className="outer-part">
-                                <p className="mb-0"><span className="start-rating">&#9733;</span>{resInfo?.cards[0]?.card?.card?.info?.avgRatingString}</p>
-                                <p className="mb-0 font-13">{resInfo?.cards[0]?.card?.card?.info?.totalRatingsString}</p>
+                                <p className="mb-0"><span className="start-rating">&#9733;</span>{resInfo?.cards[2]?.card?.card?.info?.avgRatingString}</p>
+                                <p className="mb-0 font-13">{resInfo?.cards[2]?.card?.card?.info?.totalRatingsString}</p>
                             </div>
                         </div>
                         <div className="seperator"></div>
-                        <p>{resInfo?.cards[0]?.card?.card?.info?.sla?.slaString} | {resInfo?.cards[0]?.card?.card?.info?.costForTwoMessage}</p>
+                        <p>{resInfo?.cards[2]?.card?.card?.info?.sla?.slaString} | {resInfo?.cards[2]?.card?.card?.info?.costForTwoMessage}</p>
                         <div className="seperator"></div>
+
                         {/* Accordion */}
                         {
                             allCardsToShow && allCardsToShow.map((cardDetails,idx)=>

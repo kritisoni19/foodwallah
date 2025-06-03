@@ -2,7 +2,7 @@ import "../App.css";
 import { useForm } from "react-hook-form";
 import NormalForm from "./NormalForm";
 
-let renderCount = 0
+let renderCount = 0;
 
 function Contact() {
   const {
@@ -15,7 +15,7 @@ function Contact() {
     console.log(values);
   };
 
-  renderCount += 1
+  renderCount += 1;
 
   return (
     <>
@@ -27,7 +27,7 @@ function Contact() {
         </div>
         <div className="row">
           <div className="col-md-12">
-          Render Count -- {renderCount}
+            Render Count -- {renderCount}
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="form-group">
                 <label htmlFor="">First Name</label>
@@ -49,10 +49,10 @@ function Contact() {
               </div>
               <div className="form-group">
                 <label>Select Gender</label>
-              <select {...register("gender")} className="form-control">
-                <option value="female">female</option>
-                <option value="male">male</option>
-                <option value="other">other</option>
+                <select {...register("gender")} className="form-control">
+                  <option value="female">female</option>
+                  <option value="male">male</option>
+                  <option value="other">other</option>
                 </select>
               </div>
               <input
@@ -64,9 +64,9 @@ function Contact() {
         </div>
 
         <div className="row">
-            <div className="col-md-12">
-                <NormalForm/>
-            </div>
+          <div className="col-md-12">
+            <NormalForm />
+          </div>
         </div>
       </div>
     </>

@@ -6,8 +6,8 @@ function CartPage(){
 
     return (
         <>
-        <h2>Cart List</h2>
-        <Accordion cardProps={cartItemList}/>
+         <h1>Cart</h1>
+            <Accordion cardProps={cartItemList}/>
         </>
     )
 }

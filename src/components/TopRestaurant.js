@@ -10,18 +10,16 @@ import RestaurantCards from '../components/RestaurantCards';
 function TopRestaurant() {
   const [showRestaurantData, setshowRestaurantData] = useState([]);
   // creating other state for showing filtering data
-  // const [secShowRest, setSecShowRest] = useState([]);
+  const [filteredShowRestaurant, setfilteredShowRestaurant] = useState([]);
   const [inputText, setInputText] = useState(" ");
 
-    console.log(showRestaurantData);
 
   const getApiData = async () => {
     const data = await fetch(SWIGGY_API);
     const json = await data.json();
-    console.log(json.data)
-    // console.log(json.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     setshowRestaurantData(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    // setSecShowRest(json.data.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setfilteredShowRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+
   }
 
 
@@ -31,30 +29,36 @@ function TopRestaurant() {
   }, [])
 
   const searchBtn = () => {
-    // console.log(inputText);
+    console.log('inputText' + inputText);
 
-    const filterData = showRestaurantData.filter((res) => {
-      return res.info.name.toLowerCase().includes(inputText.toLowerCase());
-
-    })
-    console.log(filterData)
-    setshowRestaurantData(filterData);
+    const serchfilterData = showRestaurantData.filter((res) => 
+       res.info.name.toLowerCase().includes(inputText.toLowerCase())
+    )
+    console.log('serchfilterData' , serchfilterData);
+     setfilteredShowRestaurant(serchfilterData);
   }
 // check internet connection features
 
 const onlineStatusShow = useOnlineStatus();
 
-if(onlineStatusShow === false) return <div className="mt-def">
+if(onlineStatusShow === false) return 
+<div className="mt-def">
   <p>err</p>
   {/* <img src= '../offline-warning.jpg' alt='warning'/> */}
 </div>
-// showRestaurantData.length === 0 ? (<Shimmer />) :
-  return  (
+
+
+return showRestaurantData.length === 0 ? <Shimmer /> :
+    
     <div className="container mt-8rem">
       <div className="row ">
         <div className="col-md-12 col-sm-12">
           <div className="d-flex align-items-center justify-content-between mb-4">
             <h2 className="page_heading">Top Restaurant</h2>
+            <button onClick={()=>{
+              const filterDataList = showRestaurantData.filter((e)=>  e.info.avgRating>4.5 )
+              setshowRestaurantData(filterDataList)
+            }}> Top Rated Restaurant</button>
             <div className="d-flex align-items-center">
               <label className=" d-flex">
                 <input
@@ -84,7 +88,7 @@ if(onlineStatusShow === false) return <div className="mt-def">
 
           <div className="grid_property mb-3">
             {
-              showRestaurantData?.map((e) => {
+              filteredShowRestaurant?.map((e) => {
                 return <Link key={e.info.id} to={'/restaurants/'+ e.info.id}>
                   <RestaurantCards/>
                   <div className="pdMain" >
@@ -116,6 +120,6 @@ if(onlineStatusShow === false) return <div className="mt-def">
         </div>
       </div>
     </div>
-  );
+  
 }
 export default TopRestaurant;
