@@ -1,11 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import contactReducer from "./contactSlice";
-import incredecreReducer from "./IncrDecreBtnSlice";
- 
+// import contactReducer from "./contactSlice";
+
+import cartReducer from "./cartSlice";
+
 const store = configureStore({
     reducer:{
-        contactslice:contactReducer,
-        incredecrementSlice:incredecreReducer
+        // contactslice:contactReducer,
+        cart: cartReducer
     }
 })
 

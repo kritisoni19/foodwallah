@@ -1,5 +1,7 @@
 import { useEffect ,useState } from "react";
 import { MEDIA_ASSETS_SWIGGY } from "../utils/constant";
+import { useDispatch } from "react-redux";
+import {addItemsCart} from '../utils/cartSlice';
 
 function Accordion({ cardProps }) {
     const {title,itemCards} = cardProps;
@@ -20,6 +22,8 @@ function Accordion({ cardProps }) {
 
     }
 
+    const dispatch = useDispatch();
+
     const incrementHandle = (id)=>{
       // console.log('hikiti', + id)
       setIncreValueShow(increValueShow+1);
@@ -34,6 +38,9 @@ function Accordion({ cardProps }) {
         selectedData.set(id,1)
       };
       setselectedData(selectedData);
+
+      dispatch(addItemsCart())
+      
       
 
     }
@@ -57,6 +64,8 @@ function Accordion({ cardProps }) {
     useEffect(()=>{
       // console.log("here")
     })
+    
+
   return (
     <   >
       {/* Accordion */}

@@ -10,6 +10,7 @@ import RestaurantMenu from './components/RestaurantMenu';
 import { Provider } from 'react-redux';
 import store from './utils/store';
 import {lazy,Suspense} from 'react';
+import CartPage from './components/CartPage';
 
 const Help = lazy(()=>import('./components/Help'));
 
@@ -34,6 +35,10 @@ const approuter = createBrowserRouter([
       {
         path:'/restaurants/:resId',
         element:<RestaurantMenu/>
+      },
+      {
+        path:'/cart',
+        element:<CartPage/>
       },
       
     ]
